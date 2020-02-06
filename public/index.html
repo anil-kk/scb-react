@@ -24,11 +24,38 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>SCB Client Applictaion</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDnkzdihkDBLm0SoKCFyA2arCXKrQzNPT4",
+    authDomain: "react-app-scb.firebaseapp.com",
+    databaseURL: "https://react-app-scb.firebaseio.com",
+    projectId: "react-app-scb",
+    storageBucket: "react-app-scb.appspot.com",
+    messagingSenderId: "895570928280",
+    appId: "1:895570928280:web:2320dfb99424a59c2166ed",
+    measurementId: "G-Z8L31LHVR3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +66,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    
   </body>
 </html>
