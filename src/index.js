@@ -1,20 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 
 let renderRootComponent = () => {
-    ReactDOM.render(<App/>, rootElement);
+  ReactDOM.render(<App />, rootElement);
 };
 
 //HOT MODULE REPLACEMENT CONFIG FOR DEV
-if(module.hot) {
-    module.hot.accept('./App', () =>{
-        setTimeout(renderRootComponent);
-    })
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    setTimeout(renderRootComponent);
+  });
 }
 
 renderRootComponent();
