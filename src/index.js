@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
 
 const rootElement = document.getElementById('root');
 
 let renderRootComponent = () => {
-  ReactDOM.render(<App />, rootElement);
+  ReactDOM.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+    rootElement
+  );
 };
 
 //HOT MODULE REPLACEMENT CONFIG FOR DEV
