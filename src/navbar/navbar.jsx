@@ -17,8 +17,8 @@ class NavBar extends Component {
     return (
       <Menu secondary>
         <Menu.Item
-        as={NavLink}
-        to='/dashboard'
+          as={NavLink}
+          to='/dashboard'
           name='dashboard'
           active={activeItem === 'dashboard'}
           onClick={this.handleMenuItemClick}
@@ -27,8 +27,8 @@ class NavBar extends Component {
           Dashboard
         </Menu.Item>
         <Menu.Item
-        as={NavLink}
-        to='/historyF'
+          as={NavLink}
+          to='/history'
           name='history'
           active={activeItem === 'history'}
           onClick={this.handleMenuItemClick}
