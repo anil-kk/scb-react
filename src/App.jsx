@@ -25,6 +25,7 @@ class App extends Component {
         </Segment>
 
         <Segment basic>
+          <Route exact path='/'></Route>
           <Route path='/dashboard' component={Dashboard}></Route>
           <Route path='/history' component={RecentHistory}></Route>
         </Segment>
