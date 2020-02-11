@@ -23,7 +23,7 @@ class NavBar extends Component {
           active={activeItem === 'dashboard'}
           onClick={this.handleMenuItemClick}
         >
-          <Icon name='dashboard' />
+          <Icon name='table' />
           Dashboard
         </Menu.Item>
         <Menu.Item
