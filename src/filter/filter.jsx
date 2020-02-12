@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
 import { Dropdown, Grid } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { updateFilteredRegions } from './selectedFilterActions';
+import { regionOptions } from '../scb';
+
+const mapFilterState = state => ({
+  filteredRegions: state.filteredRegions
+});
+
+const actions = {
+  updateFilteredRegions
+};
 
 const optionsStatic = [
-  { key: 'angular', text: 'Angular', value: 'angular' },
+  { key: 'angularKEY', text: 'AngularTEXT', value: 'angularVALUE' },
   { key: 'css', text: 'CSS', value: 'css' },
-  { key: 'design', text: 'Graphic Design', value: 'design' },
-  { key: 'html', text: 'HTML', value: 'html' },
-  { key: 'javascript', text: 'Javascript', value: 'javascript' },
-  { key: 'node', text: 'NodeJS', value: 'node' },
-  { key: 'python', text: 'Python', value: 'python' },
-  { key: 'react', text: 'React', value: 'react' }
+  { key: 'design', text: 'Graphic Design', value: 'design' }
 ];
 
 class Filter extends Component {
+  state = { regionSearchQuery: '', regionSelectOptions: regionOptions };
+
+  handleRegionSelectChange = (e, { regionSearchQuery, value }) => {
+    this.props.updateFilteredRegions(value); //USING REDUX STORE ACTIONS
+    this.setState({ regionSearchQuery });
+  };
+  handleRegionSearchQuery = (e, { regionSearchQuery }) => {
+    this.setState({ regionSearchQuery });
+  };
+
   render() {
+    const { regionSelectOptions, regionSearchQuery } = this.state;
+
     return (
       <Grid stackable columns={3}>
         <Grid.Column>
@@ -23,7 +41,10 @@ class Filter extends Component {
             multiple
             search
             selection
-            options={optionsStatic}
+            options={regionSelectOptions}
+            searchQuery={regionSearchQuery}
+            onChange={this.handleRegionSelectChange}
+            onSearchChange={this.handleRegionSearchQuery}
           />
         </Grid.Column>
         <Grid.Column>
@@ -51,4 +72,4 @@ class Filter extends Component {
   }
 }
 
-export default Filter;
+export default connect(mapFilterState, actions)(Filter);
